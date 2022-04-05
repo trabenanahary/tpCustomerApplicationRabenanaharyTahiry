@@ -41,7 +41,16 @@ public class CustomerManager {
      * @param customer
      * @return
      */
+
     public Customer update(Customer customer) {
-      return null;  
-    } 
+       return em.merge(customer);
+    }
+
+    public void persist(Customer customer) {
+       em.persist(customer);
+    }
+
+    public Customer getCustomer(int idCustomer) {  
+      return em.find(Customer.class, idCustomer);  
+    }
 }
